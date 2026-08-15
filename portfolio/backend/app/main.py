@@ -9,6 +9,7 @@ from .models import Base
 from .routes.blog import router as blog_router
 from .routes.profile import router as profile_router
 from .routes.skills import router as skills_router
+from app.routes.contact import router as contact_router
 
 
 @asynccontextmanager
@@ -33,7 +34,7 @@ app = FastAPI(
     redoc_url="/redoc",
     lifespan=lifespan,
 )
-
+app.include_router(contact_router, prefix="/api/v1")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,

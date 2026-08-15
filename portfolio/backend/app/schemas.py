@@ -3,7 +3,22 @@ from decimal import Decimal
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+from pydantic import BaseModel, EmailStr
+from datetime import datetime
 
+
+class ContactCreate(BaseModel):
+    name: str
+    email: EmailStr
+    message: str
+
+
+class ContactOut(ContactCreate):
+    id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
 
 class SkillResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)

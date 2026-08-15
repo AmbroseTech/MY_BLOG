@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaReact, FaPython, FaGitAlt } from "react-icons/fa";
 import { SiFastapi, SiPostgresql, SiTypescript } from "react-icons/si";
+import { SiPytorch, SiTensorflow, SiScikitlearn, SiNumpy, SiPandas } from "react-icons/si";
+
 
 function TechStack() {
   return (
@@ -11,6 +13,11 @@ function TechStack() {
       <SiTypescript size={32} title="TypeScript" />
       <FaPython size={32} title="Python" />
       <FaGitAlt size={32} title="Git" />
+      <SiPytorch size={32} title="PyTorch" />
+<SiTensorflow size={32} title="TensorFlow" />
+<SiScikitlearn size={32} title="scikit-learn" />
+<SiNumpy size={32} title="NumPy" />
+<SiPandas size={32} title="Pandas" />
     </div>
   );
 }
@@ -58,6 +65,7 @@ import type {
     DeveloperProfile,
     Skill,
 } from "./types";
+import { ContactForm } from "./components/ContactForm";
 
 type Section = "home" | "skills" | "blog";
 
@@ -349,7 +357,7 @@ export default function App() {
                         & Cloud Architect.
                     </p>
                 </div>
-
+                <ContactForm />
                 <div className="footer-links">
                     {profile.github_url && (
                         <a
