@@ -1,0 +1,27 @@
+portfolio/
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── models.py
+│   │   ├── schemas.py
+│   │   └── routes/
+│   │       ├── skills.py
+│   │       └── blog.py
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── BlogDetail.tsx
+│   │   │   ├── BlogList.tsx
+│   │   │   └── SkillMatrix.tsx
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── styles.css
+│   └── index.html
+├── database/
+│   └── init.sql
+├── .gitignore
+├── frontend/.gitignore
+└── README.md
