@@ -1,5 +1,19 @@
 import { useEffect, useState } from "react";
+import { FaReact, FaPython, FaGitAlt } from "react-icons/fa";
+import { SiFastapi, SiPostgresql, SiTypescript } from "react-icons/si";
 
+function TechStack() {
+  return (
+    <div className="flex gap-4">
+      <FaReact size={32} title="React" />
+      <SiFastapi size={32} title="FastAPI" />
+      <SiPostgresql size={32} title="PostgreSQL" />
+      <SiTypescript size={32} title="TypeScript" />
+      <FaPython size={32} title="Python" />
+      <FaGitAlt size={32} title="Git" />
+    </div>
+  );
+}
 
 function TerminalHero({ name, title }: { name: string; title: string }) {
   const [typed, setTyped] = useState("");
@@ -159,7 +173,7 @@ export default function App() {
                         <small>Software Engineer</small>
                     </span>
                 </a>
-
+                <TechStack />
                 <nav aria-label="Primary navigation">
                     <button
                         onClick={() => navigate("home")}
