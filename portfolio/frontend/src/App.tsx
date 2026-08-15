@@ -1,5 +1,32 @@
 import { useEffect, useState } from "react";
 
+
+function TerminalHero({ name, title }: { name: string; title: string }) {
+  const [typed, setTyped] = useState("");
+  const line = `whoami\n> ${name} — ${title}`;
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setTyped(line);
+      return;
+    }
+    let i = 0;
+    const id = setInterval(() => {
+      setTyped(line.slice(0, i));
+      i++;
+      if (i > line.length) clearInterval(id);
+    }, 35);
+    return () => clearInterval(id);
+  }, [line]);
+
+  return (
+    <pre className="hero-terminal" aria-label={line}>
+      {typed}
+      <span className="cursor">▌</span>
+    </pre>
+  );
+}
+
 import {
     fetchPost,
     fetchPosts,

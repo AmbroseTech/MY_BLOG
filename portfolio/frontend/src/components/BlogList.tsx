@@ -61,6 +61,15 @@ export function BlogList({
                     >
                         Read article →
                     </button>
+                    <ul className="commit-log">
+  {posts.map((p) => (
+    <li key={p.id} className="commit-entry">
+      <span className="commit-hash">{p.slug.slice(0, 7)}</span>
+      <a href={`/blog/${p.slug}`} className="commit-msg">{p.title}</a>
+      <time className="commit-date">{post.published_at ?new Date(post.published_at).toLocaleDateString() : "Unpublished"}</time>
+    </li>
+  ))}
+</ul> 
                 </article>
             ))}
         </div>

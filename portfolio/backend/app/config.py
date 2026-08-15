@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    """Application configuration loaded from environment variables."""
+    """Application settings, loaded from environment variables / .env file."""
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -14,21 +14,28 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    # --- App metadata ---
     app_name: str = "Ambrose Abaasa Portfolio API"
     environment: str = "development"
 
+    # --- Database ---
     database_url: str = Field(
-        default="postgresql+asyncpg://portfolio:portfolio@localhost:5432/portfolio",
+        default="postgresql+asyncpg://portfolio:Ambrose01*@localhost:5432/portfolio",
         description="Async SQLAlchemy PostgreSQL connection URL",
     )
 
+    # --- CORS ---
     cors_origins: list[str] = [
         "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "http://localhost:3000",
     ]
 
     @field_validator("cors_origins", mode="before")
     @classmethod
     def parse_cors_origins(cls, value: str | list[str]) -> list[str]:
+        """Allow CORS_ORIGINS to be provided as a JSON list or a comma-separated string."""
         if isinstance(value, list):
             return value
 

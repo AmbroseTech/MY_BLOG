@@ -38,7 +38,9 @@ export function SkillMatrix({ skills }: SkillMatrixProps) {
                                             </span>
                                         )}
                                     </div>
-
+                                        <div className="skill-bar-track">
+  <div className="skill-bar-fill" style={{ width: `${skill.proficiency * 20}%` }} />
+</div>
                                     <strong>
                                         {skill.proficiency}%
                                     </strong>
