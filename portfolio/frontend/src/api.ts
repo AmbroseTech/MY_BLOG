@@ -9,10 +9,8 @@ interface ImportMetaEnv {
     readonly VITE_API_URL?: string;
 }
 
-declare global {
-    interface ImportMeta {
-        readonly env: ImportMetaEnv;
-    }
+declare interface ImportMeta {
+    readonly env: ImportMetaEnv;
 }
 
 const API_URL =
